@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class _InfiniteListScreenState extends StatefulWidget {
-  const _InfiniteListScreenState({super.key});
+class InfiniteListScreenState extends StatefulWidget {
+  const InfiniteListScreenState({super.key});
 
   @override
-  State<_InfiniteListScreenState> createState() => __InfiniteListScreenStateState();
+  State<InfiniteListScreenState> createState() => InfiniteListScreenStateState();
 }
 
-class __InfiniteListScreenStateState extends State<_InfiniteListScreenState> {
+class InfiniteListScreenStateState extends State<InfiniteListScreenState> {
   @override
   Widget build(BuildContext context) {
     return const Center(
