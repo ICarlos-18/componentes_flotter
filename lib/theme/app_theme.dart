@@ -4,9 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 class AppTheme{
 
   // Declaraciones de colores
-  static const mainColor = Color.fromARGB(225, 18, 9, 149);
-  static const backColor = Color.fromARGB(95, 26, 180, 215);
-  static const accentcolor = Color.fromARGB(200, 17, 39, 204);
+  static const mainColor = Color.fromARGB(224, 13, 134, 227);
+  static const backColor = Color.fromARGB(110, 123, 216, 239);
+  static const accentcolor = Color.fromARGB(199, 6, 113, 156);
 
 
   // Declaraciones del Tema claro
@@ -21,7 +21,7 @@ class AppTheme{
       ),
     ),
     iconTheme: const IconThemeData(
-      color: Colors.blue,
+      color: Color.fromARGB(255, 77, 158, 224),
       size: 35.0,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -48,11 +48,12 @@ class AppTheme{
         decorationThickness: 3.0,
         fontStyle: FontStyle.italic,
       ),
-      bodySmall: GoogleFonts.acme(
+      headlineMedium: GoogleFonts.acme(
         color: accentcolor,
         fontSize: 18.5,
-        fontWeight: FontWeight.w400,
-        fontStyle: FontStyle.normal
+        fontWeight: FontWeight.w500,
+        decorationStyle: TextDecorationStyle.double,
+        decoration: TextDecoration.underline
       ),
     ),
   );

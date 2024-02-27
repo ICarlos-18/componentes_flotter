@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Componentes de flutter',
-          style: TextStyle(color: Color.fromARGB(255, 215, 232, 247),
+          style: TextStyle(color: Color.fromARGB(255, 236, 237, 238),
             fontWeight: FontWeight.bold),),
         ),
         body: ListView(
