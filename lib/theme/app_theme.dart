@@ -48,7 +48,7 @@ class AppTheme{
         decorationThickness: 3.0,
         fontStyle: FontStyle.italic,
       ),
-      headlineMedium: GoogleFonts.acme(
+      bodyMedium: GoogleFonts.acme(
         color: accentcolor,
         fontSize: 18.5,
         fontWeight: FontWeight.w500,
