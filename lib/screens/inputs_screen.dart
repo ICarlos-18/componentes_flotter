@@ -9,8 +9,12 @@ class InputsScreen extends StatefulWidget {
 
 class _InputsScreenState extends State<InputsScreen> {
   bool valueSwitch = false;
+  bool isChecked1 = false;
+  bool isChecked2 = false;
+  bool isChecked3 = false;
   double valueSlider = 0.0;
   int selectedIndex = 0;
+  int selectedRadioOpction = 0; // Para los RadioButton
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,6 +31,12 @@ class _InputsScreenState extends State<InputsScreen> {
             entradasTexto(),
             entradaSwitch(),
             entradaSlider(),
+            entradasRadio(),
+            Text(
+              '¿Qué usas para correr tus apps de Flutter?',
+              style: AppTheme.lightTheme.textTheme.headlineLarge,
+            ),
+            entradasCheck(),
             const ElevatedButton(
               onPressed: null, 
               child: Text('Guardar',
@@ -112,6 +122,100 @@ class _InputsScreenState extends State<InputsScreen> {
             setState(() {
               valueSlider = value;
               print('Valor del slider: $valueSlider');
+            });
+          },
+        ),
+      ],
+    );
+  }
+
+  Column entradasRadio(){
+    return Column(
+      children: [
+        Text(
+          '¿Qué prefieres usar para desarrollo movil?',
+          style: AppTheme.lightTheme.textTheme.headlineLarge,
+        ),
+        ListTile(
+          title: Text(
+            'kotlin',
+            style: AppTheme.lightTheme.textTheme.headlineMedium,
+          ),
+          leading: Transform.scale(
+            scale: 1.0,
+            child: Radio(
+              value: 1,
+              groupValue: selectedRadioOpction,
+              onChanged: (value){
+                setState(() {
+                  selectedRadioOpction = value!;
+                  print('Opción seleccionada: $selectedRadioOpction');
+                });
+              },),
+          ),
+        ),
+        ListTile(
+          title: Text(
+            'Flutter',
+            style: AppTheme.lightTheme.textTheme.headlineMedium,
+          ),
+          leading: Transform.scale(
+            scale: 1.0,
+            child: Radio(
+              value: 2,
+              groupValue: selectedRadioOpction,
+              onChanged: (value){
+                setState(() {
+                  selectedRadioOpction = value!;
+                  print('Opción seleccionada: $selectedRadioOpction');
+                });
+              },),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Row entradasCheck(){
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          'Navegador',
+          style: AppTheme.lightTheme.textTheme.headlineMedium,
+        ),
+        Checkbox(
+          value: isChecked1, 
+          onChanged: (value){
+            setState(() {
+              isChecked1 = value!;
+              print('Valor de navegador: $isChecked1');
+            });
+          },
+        ),
+        Text(
+          'Emulador',
+          style: AppTheme.lightTheme.textTheme.headlineMedium,
+        ),
+        Checkbox(
+          value: isChecked2, 
+          onChanged: (value){
+            setState(() {
+              isChecked2 = value!;
+              print('Valor de Emulador: $isChecked2');
+            });
+          },
+        ),
+        Text(
+          'Smartphone',
+          style: AppTheme.lightTheme.textTheme.headlineMedium,
+        ),
+        Checkbox(
+          value: isChecked3, 
+          onChanged: (value){
+            setState(() {
+              isChecked3 = value!;
+              print('Valor de navegador: $isChecked3');
             });
           },
         ),
