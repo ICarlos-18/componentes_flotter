@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:practica3_5c/screens/home_screen.dart';
+import 'package:practica3_5c/screens/images_screen.dart';
+import 'package:practica3_5c/screens/infinite_list_screen.dart';
+import 'package:practica3_5c/screens/notifications_screen.dart';
 import 'package:practica3_5c/theme/app_theme.dart';
 class InputsScreen extends StatefulWidget {
   const InputsScreen({super.key});
@@ -15,6 +19,37 @@ class _InputsScreenState extends State<InputsScreen> {
   double valueSlider = 0.0;
   int selectedIndex = 0;
   int selectedRadioOpction = 0; // Para los RadioButton
+
+  openScreen(int index) {
+    setState(() {
+      MaterialPageRoute ruta = 
+        MaterialPageRoute(builder: (context) => const HomeScreen());
+
+      switch (index){
+      case 0: 
+        ruta = 
+          MaterialPageRoute(builder: (context)  => const HomeScreen());
+        break;
+      case 1: 
+        ruta = 
+          MaterialPageRoute(builder: (context)  => const InfiniteListScreenState());
+        break;
+      case 2: 
+        ruta = 
+          MaterialPageRoute(builder: (context)  => const NotificationsScreen());
+        break;
+      case 3: 
+        ruta = 
+          MaterialPageRoute(builder: (context)  => const ImageScreen());
+        break;
+    }
+    setState(() {
+      selectedIndex = index;
+      Navigator.push(context, ruta);
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +82,9 @@ class _InputsScreenState extends State<InputsScreen> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,
-        backgroundColor: AppTheme.mainColor,
+        backgroundColor: const Color.fromARGB(255, 8, 134, 230),
+        unselectedItemColor: const Color.fromARGB(108, 33, 154, 184),
+        onTap: (index) => openScreen(index),
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home,
@@ -57,12 +94,22 @@ class _InputsScreenState extends State<InputsScreen> {
             BottomNavigationBarItem(
               icon: Icon(Icons.list,
               color: Color.fromARGB(255, 255, 255, 255),),
-             label: "Datos",
+              label: "Lista",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.notification_add,
+              color: Color.fromARGB(255, 255, 255, 255),),
+              label: "Notificaciones",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.image,
+              color: Color.fromARGB(255, 255, 255, 255),),
+              label: "Imagénes",
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.exit_to_app,
               color: Color.fromARGB(255, 250, 250, 250),),
-             label: "Salir", 
+              label: "Salir", 
             ),
         ],
         unselectedLabelStyle: AppTheme.lightTheme.textTheme.bodySmall
