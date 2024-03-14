@@ -58,7 +58,7 @@ class HomeScreen extends StatelessWidget {
             ),
               onTap: () {
               final ruta2 = MaterialPageRoute(builder: (context){
-                return const InfiniteListScreenState();
+                return const InfiniteListScreen();
               });
               Navigator.push(context, ruta2);
             },
